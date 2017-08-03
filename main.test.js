@@ -16,3 +16,23 @@ describe('isUnique',function(){
     expect(codewars.isUnique(str5)).to.be.true;
   });
 });
+
+describe('checkPermutation',function(){
+  it('checks if two strings are permutations of each other',function(){
+    let str1 = 'taco';
+    let str2 = 'ocat';
+    expect(codewars.checkPermutation(str1,str2)).to.be.true;
+
+    str1 = 'pikachu';
+    str2 = 'octocat';
+    expect(codewars.checkPermutation(str1,str2)).to.be.false;
+
+    str1 = 'imma giant banana';
+    str2 = 'igbmiamananatna  ';
+    expect(codewars.checkPermutation(str1,str2)).to.be.true;
+
+    str1 = 'watermelon';
+    str2 = 'relowatnem';
+    expect(codewars.checkPermutation(str1,str2)).to.be.true;
+  });
+});
