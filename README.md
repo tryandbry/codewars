@@ -1,1 +1,4 @@
-(https://www.codewars.com/kata/from-dot-to-dot-series-number-2-from-arr1-to-arr2-find-the-most-same-sum-value-of-pairs)[From..To..Series #2: from arr1 to arr2. Find the most same sum value of pairs]
+# Cracking the Coding Interview
+practice exercises
+
+1. **Is Unique**: Implement an algorithm to determine if a string has all unique characters.  What if you cannot use additional data structures?
