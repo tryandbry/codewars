@@ -3,7 +3,7 @@ import {expect} from 'chai';
 import * as codewars from './main';
 
 describe('isUnique',function(){
-  it('checks if a string has unique characters',function(){
+  xit('checks if a string has unique characters',function(){
     let str1 = 'abcdefg';
     let str2 = 'aabcdefg';
     let str3 = 'Aabcdefg';
@@ -18,7 +18,7 @@ describe('isUnique',function(){
 });
 
 describe('checkPermutation',function(){
-  it('checks if two strings are permutations of each other',function(){
+  xit('checks if two strings are permutations of each other',function(){
     let str1 = 'taco';
     let str2 = 'ocat';
     expect(codewars.checkPermutation(str1,str2)).to.be.true;
@@ -34,5 +34,15 @@ describe('checkPermutation',function(){
     str1 = 'watermelon';
     str2 = 'relowatnem';
     expect(codewars.checkPermutation(str1,str2)).to.be.true;
+  });
+});
+
+describe('URLify',function(){
+  it('replaces spaces wxith \'%20\'',function(){
+    let str1 = 'space space';
+    expect(codewars.URLify(str1)).to.equal('space%20space');
+
+    str1 = '    ';
+    expect(codewars.URLify(str1)).to.equal('%20%20%20%20');
   });
 });

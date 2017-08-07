@@ -31,3 +31,7 @@ export const checkPermutation = (str1,str2) => {
   }
   return true;
 }
+
+export const URLify = (str) => {
+  return str.replace(/\s/g,'%20');
+}
