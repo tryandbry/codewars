@@ -38,11 +38,21 @@ describe('checkPermutation',function(){
 });
 
 describe('URLify',function(){
-  it('replaces spaces wxith \'%20\'',function(){
+  xit('replaces spaces with \'%20\'',function(){
     let str1 = 'space space';
     expect(codewars.URLify(str1)).to.equal('space%20space');
 
     str1 = '    ';
     expect(codewars.URLify(str1)).to.equal('%20%20%20%20');
+  });
+});
+
+describe('palindromePermutation',function(){
+  it('checks if can be valid palindrome',function(){
+    let str1 = 'aabbc';
+    expect(codewars.palindromePermutation(str1)).to.be.true;
+
+    str1 = 'cbaaabc';
+    expect(codewars.palindromePermutation(str1)).to.be.true;
   });
 });
