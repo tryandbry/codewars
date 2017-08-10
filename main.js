@@ -102,9 +102,62 @@ export const oneAway = (str1,str2) => {
   }
 }
 
+/*
+export const stringCompression = (str) => {
+  let letter;
 
+  if(str[0] !== undefined) letter = str[0];
+  else return '';
 
+  let buffer = '';
+  let count = 0;
 
+  for(let i=0;i<str.length;i++){
+    if(str[i] != letter && count) {
+      buffer += letter + count;
+      letter = str[i];
+      count = 1;
+    }
+    else {
+      count++;
+    }
+    //console.log(`str[i]: ${str[i]}, letter: ${str[i]}, count: ${count}, buffer: ${buffer}`);
+  }
+  buffer += letter + count;
+
+  return buffer.length < str.length ? buffer : str;
+}
+*/
+
+//export const stringCompression = (str) => {
+//  if(!str) return '';
+//  //console.log(str.match(/(.)\1*/g));
+//  let buffer = str.match(/(.)\1*/g).reduce( (sum, segment) => {
+//    return sum + segment[0] + segment.length;
+//  },'');
+//
+//  return buffer.length < str.length ? buffer : str;
+//}
+
+export const stringCompression = (str) => {
+  let buffer = '';
+  let letter;
+  let count;
+
+  for(let i=0;i<str.length;i++){
+    if(str[i] != letter) {
+      if(count) buffer += letter + count;
+      letter = str[i];
+      count = 1;
+    }
+    else {
+      count++;
+    }
+  }
+  buffer += letter + count;
+
+  return buffer.length < str.length ? buffer : str;
+}
 
 
 
