@@ -48,11 +48,23 @@ describe('URLify',function(){
 });
 
 describe('palindromePermutation',function(){
-  it('checks if can be valid palindrome',function(){
+  xit('checks if can be valid palindrome',function(){
     let str1 = 'aabbc';
     expect(codewars.palindromePermutation(str1)).to.be.true;
 
     str1 = 'cbaaabc';
     expect(codewars.palindromePermutation(str1)).to.be.true;
+  });
+});
+
+describe('oneAway',function(){
+  xit('checks if two strings are one edit away (insert,remove,replace)',function(){
+    expect(codewars.oneAway('pales','pale')).to.be.true;
+    expect(codewars.oneAway('pale','ale')).to.be.true;
+    expect(codewars.oneAway('pale','ple')).to.be.true;
+    expect(codewars.oneAway('pale','ble')).to.be.false;
+    expect(codewars.oneAway('ale','pale')).to.be.true;
+    expect(codewars.oneAway('pale','bale')).to.be.true;
+    expect(codewars.oneAway('pale','bake')).to.be.false;
   });
 });

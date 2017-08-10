@@ -67,3 +67,55 @@ export const palindromePermutation = (str) => {
 
   return Object.keys(hash).length % 2 ? true : false;
 }
+
+export const oneAway = (str1,str2) => {
+  if(str1.length == str2.length) return replaceOne(str1,str2);
+  else if (str1.length == str2.length + 1) return removeOne(str1,str2);
+  else if (str2.length == str1.length + 1) return addOne(str1,str2);
+
+  function replaceOne(str1,str2){
+    let diff=false;
+
+    for(let i=0;i<str1.length;i++){
+      if(str1[i] != str2[i]){
+        if(diff) {
+          return false;
+        }
+        else diff=true;
+      }
+    }
+    return true;
+  }
+  
+  //assumes str1 is the longer string
+  function removeOne(str1,str2){
+    for(let i=0;i<str1.length;i++){
+      if(str1[i] != str2[i]){
+        //console.log('i:',i," ",str1.slice(0,i)+"|"+str1.slice(i+1)+"<");
+        return str1.slice(0,i) + str1.slice(i+1) != str2 ? false: true;
+      }
+    }
+  }
+
+  function addOne(str1,str2){
+    return removeOne(str2,str1);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
