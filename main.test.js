@@ -84,6 +84,10 @@ describe('stringCompression',function(){
 });
 
 describe('rotateMatrix',function(){
+  it('rotates a 1x1 matrix',function(){
+    expect(codewars.rotateMatrix([[1]])).to.deep.equal([[1]]);
+  });
+
   it('rotates a 2x2 matrix',function(){
     expect(codewars.rotateMatrix([[1,2],[3,4]])).to.deep.equal([[3,1],[4,2]]);
   });

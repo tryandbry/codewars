@@ -160,20 +160,10 @@ export const stringCompression = (str) => {
 }
 
 export const rotateMatrix = (matrix) => {
-  if(matrix.length < 2) return matrix;
-  //console.log('before:\n');
-  //pMatrix(matrix);
-  let originalMatrix = matrix.slice(0);
-
-  //console.log('after:\n');
-  /*
-  let answer = swapSquare(matrix,matrix.length,0);
-  pMatrix(answer);
-  return answer;
-  */
-
   let matrixLength = matrix.length;
+  // 'i' traverses layers, starting with outermost layer
   for(let i=0;matrixLength > 1;i++){
+    // 'j' traverses elements in a layer
     for(let j=0;j<matrixLength-1;j++){
       swapSquare(matrix,[i,i],matrixLength,j);
     }
@@ -181,6 +171,23 @@ export const rotateMatrix = (matrix) => {
   }
   return matrix;
   
+  //        name: swapSquare
+  // description: Performs three swaps:
+  //              e.g.
+  //                    row   row+1   row+2
+  //              col    1      x       2
+  //              col+1  x      x       x
+  //              col+2  3      x       4
+  //
+  //              swap order
+  //              1<->3
+  //              3<->4
+  //              4<->2
+  //
+  //        pure: no
+  //      return: original mutated matrix.  Return value is redundant;
+  //              original matrix is mutated.
+  //
   function swapSquare(matrix,topLeft,length,offset){
     let row = topLeft[0];
     let col = topLeft[1];
