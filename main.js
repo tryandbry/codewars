@@ -161,27 +161,41 @@ export const stringCompression = (str) => {
 
 export const rotateMatrix = (matrix) => {
   if(matrix.length < 2) return matrix;
-  console.log('before:\n');
-  pMatrix(matrix);
+  //console.log('before:\n');
+  //pMatrix(matrix);
+  let originalMatrix = matrix.slice(0);
 
-  console.log('after:\n');
+  //console.log('after:\n');
+  /*
   let answer = swapSquare(matrix,matrix.length,0);
   pMatrix(answer);
   return answer;
+  */
+
+  let matrixLength = matrix.length;
+  for(let i=0;matrixLength > 1;i++){
+    for(let j=0;j<matrixLength-1;j++){
+      swapSquare(matrix,[i,i],matrixLength,j);
+    }
+    matrixLength -= 2;
+  }
+  return matrix;
   
-  function swapSquare(matrix,length,iteration){
-    let newMatrix = matrix.slice(0);
-    let element = length - 1 - iteration;
-    swap(newMatrix,[0,0],[element,0]);
-    console.log('first swap');
-    pMatrix(newMatrix);
-    swap(newMatrix,[element,0],[element,element]);
-    console.log('second swap');
-    pMatrix(newMatrix);
-    swap(newMatrix,[element,element],[0,element]);
-    console.log('third swap');
-    pMatrix(newMatrix);
-    return newMatrix;
+  function swapSquare(matrix,topLeft,length,offset){
+    let row = topLeft[0];
+    let col = topLeft[1];
+    length -= 1;
+
+    swap(matrix,[row,col+offset],[row+length-offset,col]);
+    //console.log('first swap');
+    //pMatrix(matrix);
+    swap(matrix,[row+length-offset,col],[row+length,col+length-offset]);
+    //console.log('second swap');
+    //pMatrix(matrix);
+    swap(matrix,[row+length,col+length-offset],[row+offset,col+length]);
+    //console.log('third swap');
+    //pMatrix(matrix);
+    return matrix;
 
     function swap(matrix,a,b) {
       //expect a and b to be of the form: [x,y]
@@ -189,6 +203,7 @@ export const rotateMatrix = (matrix) => {
       matrix[a[0]][a[1]] = matrix[b[0]][b[1]];
       matrix[b[0]][b[1]] = buffer;
     }
+
   }
 
   function pMatrix(matrix){
