@@ -70,17 +70,23 @@ describe('oneAway',function(){
 });
 
 describe('stringCompression',function(){
-  it('compresses strings',function(){
+  xit('compresses strings',function(){
     expect(codewars.stringCompression('aabcccccaaa')).to.equal('a2b1c5a3');
     expect(codewars.stringCompression('aabccccc')).to.equal('a2b1c5');
     expect(codewars.stringCompression('')).to.equal('');
     expect(codewars.stringCompression('aaa')).to.equal('a3');
   });
 
-  it('compresses only if more efficient',function(){
+  xit('compresses only if more efficient',function(){
     expect(codewars.stringCompression('abcde')).to.equal('abcde');
   });
 
+});
+
+describe('rotateMatrix',function(){
+  it('rotates a 2x2 matrix',function(){
+    expect(codewars.rotateMatrix([[1,2],[3,4]])).to.deep.equal([[3,1],[4,2]]);
+  });
 });
 
 

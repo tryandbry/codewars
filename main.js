@@ -159,6 +159,51 @@ export const stringCompression = (str) => {
   return buffer.length < str.length ? buffer : str;
 }
 
+export const rotateMatrix = (matrix) => {
+  if(matrix.length < 2) return matrix;
+  console.log('before:\n');
+  pMatrix(matrix);
+
+  console.log('after:\n');
+  let answer = swapSquare(matrix,matrix.length,0);
+  pMatrix(answer);
+  return answer;
+  
+  function swapSquare(matrix,length,iteration){
+    let newMatrix = matrix.slice(0);
+    let element = length - 1 - iteration;
+    swap(newMatrix,[0,0],[element,0]);
+    console.log('first swap');
+    pMatrix(newMatrix);
+    swap(newMatrix,[element,0],[element,element]);
+    console.log('second swap');
+    pMatrix(newMatrix);
+    swap(newMatrix,[element,element],[0,element]);
+    console.log('third swap');
+    pMatrix(newMatrix);
+    return newMatrix;
+
+    function swap(matrix,a,b) {
+      //expect a and b to be of the form: [x,y]
+      let buffer = matrix[a[0]][a[1]];
+      matrix[a[0]][a[1]] = matrix[b[0]][b[1]];
+      matrix[b[0]][b[1]] = buffer;
+    }
+  }
+
+  function pMatrix(matrix){
+    let string = '';
+    matrix.forEach(row => {
+      string += '[ ';
+      row.forEach(e => {
+        string += ` ${e} `;
+      });
+      string += ' ]\n';
+    });
+
+    console.log(string);
+  }
+}
 
 
 
