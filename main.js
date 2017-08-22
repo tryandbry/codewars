@@ -227,6 +227,54 @@ export const rotateMatrix = (matrix) => {
   }
 }
 
+export const zeroColRow = (matrix) => {
+  /*
+   * find zeros
+   */
+  let rows = matrix.length;
+  let cols = matrix.length ? matrix[0].length : 0;
+  let col = {};
+  let row = {};
+
+  for(let y=0;y<rows;y++){
+    for(let x=0;x<cols;x++){
+      if(matrix[y][x] === 0) {
+        col[x] = true;
+        row[y] = true;
+      }
+    }
+  }
+
+  /*
+   * generate new matrix
+   */
+  let newMatrix = [];
+  let zeroRow = Object.keys(row).length ? generateZeroRow(cols) : null;
+  for(let y=0;y<rows;y++){
+    if(row[y]) newMatrix.push(zeroRow());
+    else {
+      //iterate through cols and replace with zeros as necessary
+    }
+  }
+
+
+  function generateZeroRow(n) {
+    let cache;
+    return function () {
+      if(cache){
+        return cache;
+      }
+      else {
+        cache = [];
+        for(let i=0;i<n;i++){
+          cache.push(0);
+        }
+        return cache;
+      }
+    }
+  }
+}
+
 
 
 

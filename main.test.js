@@ -84,20 +84,20 @@ describe('stringCompression',function(){
 });
 
 describe('rotateMatrix',function(){
-  it('rotates a 1x1 matrix',function(){
+  xit('rotates a 1x1 matrix',function(){
     expect(codewars.rotateMatrix([[1]])).to.deep.equal([[1]]);
   });
 
-  it('rotates a 2x2 matrix',function(){
+  xit('rotates a 2x2 matrix',function(){
     expect(codewars.rotateMatrix([[1,2],[3,4]])).to.deep.equal([[3,1],[4,2]]);
   });
 
-  it('rotates a 3x3 matrix',function(){
+  xit('rotates a 3x3 matrix',function(){
     expect(codewars.rotateMatrix([[1,2,3],[4,5,6],[7,8,9]]))
     .to.deep.equal([[7,4,1],[8,5,2],[9,6,3]]);
   });
 
-  it('rotates a 4x4 matrix',function(){
+  xit('rotates a 4x4 matrix',function(){
     expect(codewars.rotateMatrix([
       [1,2,3,4],
       [5,6,7,8],
@@ -110,7 +110,7 @@ describe('rotateMatrix',function(){
       [16,12,8,4]]);
   });
 
-  it('rotates a 5x5 matrix',function(){
+  xit('rotates a 5x5 matrix',function(){
     expect(codewars.rotateMatrix([
       [1,2,3,4,5],
       [6,7,8,9,10],
@@ -126,6 +126,51 @@ describe('rotateMatrix',function(){
   });
 });
 
+describe('zeroColRow',function(){
+  it('zeros out row containing 0 elements',function(){
+    expect(codewars.zeroColRow([
+      [0,1,2,3,4],
+      [1,1,1,1,1],
+      [1,1,1,1,1],
+      [1,1,1,1,1],
+      [1,1,1,1,1],
+    ])).to.deep.equal([
+      [0,0,0,0,0],
+      [0,1,1,1,1],
+      [0,1,1,1,1],
+      [0,1,1,1,1],
+      [0,1,1,1,1],
+    ]);
+
+    expect(codewars.zeroColRow([
+      [0,1,2,3,4],
+      [1,0,1,1,1],
+      [1,1,1,1,1],
+      [1,1,1,1,1],
+      [1,1,1,1,1],
+    ])).to.deep.equal([
+      [0,0,0,0,0],
+      [0,0,1,1,1],
+      [0,0,1,1,1],
+      [0,0,1,1,1],
+      [0,0,1,1,1],
+    ]);
+
+    expect(codewars.zeroColRow([
+      [0,1,2,3,4],
+      [1,0,1,1,1],
+      [1,1,1,1,1],
+      [1,1,1,0,1],
+      [1,1,1,1,1],
+    ])).to.deep.equal([
+      [0,0,0,0,0],
+      [0,0,1,0,1],
+      [0,0,1,0,1],
+      [0,0,0,0,0],
+      [0,0,1,0,1],
+    ]);
+  });
+});
 
 
 
