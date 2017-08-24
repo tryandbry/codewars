@@ -127,7 +127,7 @@ describe('rotateMatrix',function(){
 });
 
 describe('zeroColRow',function(){
-  it('zeros out row containing 0 elements',function(){
+  it('zeros out rows and columns containing 0 elements',function(){
     expect(codewars.zeroColRow([
       [0,1,2,3,4],
       [1,1,1,1,1],
@@ -150,7 +150,7 @@ describe('zeroColRow',function(){
       [1,1,1,1,1],
     ])).to.deep.equal([
       [0,0,0,0,0],
-      [0,0,1,1,1],
+      [0,0,0,0,0],
       [0,0,1,1,1],
       [0,0,1,1,1],
       [0,0,1,1,1],
@@ -164,7 +164,7 @@ describe('zeroColRow',function(){
       [1,1,1,1,1],
     ])).to.deep.equal([
       [0,0,0,0,0],
-      [0,0,1,0,1],
+      [0,0,0,0,0],
       [0,0,1,0,1],
       [0,0,0,0,0],
       [0,0,1,0,1],

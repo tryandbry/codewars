@@ -213,18 +213,20 @@ export const rotateMatrix = (matrix) => {
 
   }
 
-  function pMatrix(matrix){
-    let string = '';
-    matrix.forEach(row => {
-      string += '[ ';
-      row.forEach(e => {
-        string += ` ${e} `;
-      });
-      string += ' ]\n';
-    });
+}
 
-    console.log(string);
-  }
+// utility function
+function pMatrix(matrix){
+  let string = '';
+  matrix.forEach(row => {
+    string += '[ ';
+    row.forEach(e => {
+      string += ` ${e} `;
+    });
+    string += ' ]\n';
+  });
+
+  return string;
 }
 
 export const zeroColRow = (matrix) => {
@@ -245,6 +247,9 @@ export const zeroColRow = (matrix) => {
     }
   }
 
+  //console.log('col:',col);
+  //console.log('row:',row);
+
   /*
    * generate new matrix
    */
@@ -253,10 +258,16 @@ export const zeroColRow = (matrix) => {
   for(let y=0;y<rows;y++){
     if(row[y]) newMatrix.push(zeroRow());
     else {
-      //iterate through cols and replace with zeros as necessary
+      let newRow = [];
+      for(let x=0;x<cols;x++){
+        if(col[x]) newRow.push(0);
+        else newRow.push(matrix[y][x]);
+      }
+      newMatrix.push(newRow);
     }
+    //console.log(pMatrix(newMatrix));
   }
-
+  return newMatrix;
 
   function generateZeroRow(n) {
     let cache;
